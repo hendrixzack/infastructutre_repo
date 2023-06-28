@@ -1,24 +1,22 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps {
-         }
+    agent any
 
-      }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', credentialsId: '<CREDS>', url: 'https://github.com/sumeetninawe/tf-tuts'
+            }
+        }
+        stage('Terraform init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+        stage('Terraform apply') {
+            steps {
+                sh 'terraform apply --auto-approve'
+            }
+        }
+        
     }
-
-    stage('Terraform Init') {
-      steps {
-      }
-    }
-
-
-    stage('Terraform Apply') {
-      steps {
-        input 'Are you sure you want to apply the terraform changes?'
-        sh 'terraform apply ${TF_APPLY_PARAMS}'
-      }
-    }
-
-  }
+}
