@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController" {
   role       = aws_iam_role.cluster.name
 }
 resource "aws_iam_role" "node1" {
-  name = "skillstorm-nodes"
+  name = "skillstorm-nodes1"
 
   assume_role_policy = jsonencode({
     Statement = [{
