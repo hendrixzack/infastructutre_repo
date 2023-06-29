@@ -27,9 +27,9 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 script {
-                    withAWS(credentials: 'aws_cred', region:'us-east-1') {
+                    
                         sh 'terraform apply -auto-approve'
-                }
+                
                 // Apply the changes using Terraform
                          
             }
