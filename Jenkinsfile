@@ -9,11 +9,15 @@ pipeline {
         }
         stage('Terraform init') {
             steps {
+                 script {
+        withAWS(credentials: 'your-credentials-id') {
                 sh 'terraform init'
             }
         }
         stage('Terraform apply') {
             steps {
+                 script {
+        withAWS(credentials: 'your-credentials-id') {
                 sh 'terraform apply --auto-approve'
             }
         }
