@@ -7,5 +7,5 @@ resource "aws_instance" "main" {
   tags = {
     "Name" = "${var.default_tags.env}-ec2"
   }
-  user_data = base64encode(file("C:/Users/Zack/Downloads/Terraform/Terraform/user.sh"))
+  user_data = base64encode(file("user.sh"))
 }
