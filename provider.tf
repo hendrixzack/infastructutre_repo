@@ -7,11 +7,6 @@ terraform {
   }
 }
 
-provider "aws" {
-  region  = "us-east-1"
-  profile = "Student-785169158894"
-
-}
 terraform {
   backend "s3" {
     bucket = "group4project3-bucket"
