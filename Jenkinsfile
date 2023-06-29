@@ -7,13 +7,20 @@ pipeline {
                 git branch: 'main', credentialsId: '<CREDS>', url: 'https://github.com/hendrixzack/infastructutre_repo'
             }
         }
-        stage('Terraform init') {
-            steps {
-                 script {
-        withAWS(credentials: 'aws_cred') {
-                sh 'terraform init'}}
-            }
+        stages {
+    stage('Example') {
+      steps {
+          script {
+        withAWS(credentials: 'your-credentials-id') {
+
+          sh 'terraform init'
+
         }
+       }
+      }
+    }
+  }
+                
         stage('Terraform apply') {
             steps {
                  script {
