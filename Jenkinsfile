@@ -26,13 +26,13 @@ pipeline {
         
         stage('Terraform Apply') {
             steps {
-                script {
-                    
-                        sh 'terraform apply -auto-approve'
-                
-                // Apply the changes using Terraform
-                         
+                steps {
+                // Initialize Terraform and download providers
+                sh 'terraform apply -auto-approve'
             }
+                        
+                
+                
         }
     }
 }
